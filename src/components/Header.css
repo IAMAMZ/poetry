@@ -1,0 +1,24 @@
+.outerWrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #85A389;
+}
+
+.innerWrapper{
+    display: flex;
+    width:70%;
+    align-items: center;
+}
+.innerWrapper ul {
+    width: 50%;
+    list-style: none;
+    display: flex;
+    gap:30px;
+    font-size: 23px;
+}
+
+h1 {
+    width: 100%;
+}

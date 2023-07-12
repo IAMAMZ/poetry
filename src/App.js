@@ -1,6 +1,8 @@
 import "./App.css";
 import SearchBox from "./components/SearchBox";
 import { useEffect, useState } from "react";
+import Poem from "./components/Poem";
+import Header from "./components/Header";
 
 function App() {
   const [poems, setPoems] = useState();
@@ -20,7 +22,7 @@ function App() {
   }, [poems]);
   return (
     <div className="App">
-      <h1>Poetry</h1>
+      <Header></Header>
       <SearchBox
         label="Search for title:"
         buttonTxt={"Search"}
@@ -29,13 +31,11 @@ function App() {
       {poems
         ? poems.map((poem) => {
             const lines = poem.lines;
+            const author = poem.author;
+            const title = poem.title;
             return (
               <div>
-                <hr />
-                {lines.map((line) => (
-                  <p>{line}</p>
-                ))}
-                <hr />
+                <Poem title={title} author={author} lines={lines} />
               </div>
             );
           })

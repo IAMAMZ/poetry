@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SearchBox.css";
 
 export default function SearchBox({ label, buttonTxt, whenSubmit = (f) => f }) {
   const [formInput, setFormInput] = useState();
@@ -10,7 +11,7 @@ export default function SearchBox({ label, buttonTxt, whenSubmit = (f) => f }) {
         whenSubmit(formInput);
       }}
     >
-      <fieldset>
+      <fieldset className="boxFieldset">
         <label>{label}</label>
         <input
           id="inputText"
