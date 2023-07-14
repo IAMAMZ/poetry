@@ -6,14 +6,32 @@ import Header from "./components/Header";
 
 function App() {
   const [poems, setPoems] = useState();
+  const [error, setError] = useState();
 
   function searchTitle(title) {
     console.log("search title worked");
     const url = "https://poetrydb.org/title/" + title;
     fetch(url)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        if (response.status === 401) {
+          console.log("not found");
+        }
+        throw new Error("Something went wrong");
+      })
       .then((data) => {
-        setPoems(data);
+        if (data.status) {
+          setError("not found");
+          setPoems(null);
+          throw new Error("not found");
+        } else {
+          setPoems(data);
+        }
+      })
+      .catch(() => {
+        setError("Resource not found:) please search for another combination");
       });
   }
 
@@ -28,8 +46,10 @@ function App() {
         buttonTxt={"Search"}
         whenSubmit={searchTitle}
       />
-      {poems
-        ? poems.map((poem) => {
+      <div className="poemsWrapper">
+        {console.log(poems)}
+        {poems ? (
+          poems.map((poem) => {
             const lines = poem.lines;
             const author = poem.author;
             const title = poem.title;
@@ -39,7 +59,10 @@ function App() {
               </div>
             );
           })
-        : null}
+        ) : (
+          <p>{error}</p>
+        )}
+      </div>
     </div>
   );
 }

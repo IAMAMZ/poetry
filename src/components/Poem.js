@@ -6,9 +6,11 @@ export default function Poem({ title, author, lines }) {
       <h2 className="title">{title}</h2>
       <h3 className="author">{author}</h3>
       <hr />
-      {lines.map((line) => (
-        <p>{line}</p>
-      ))}
+      <div className="linesWrapper">
+        {lines.map((line) => (
+          <p>{line}</p>
+        ))}
+      </div>
     </div>
   );
 }

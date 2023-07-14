@@ -1,14 +1,26 @@
 .title{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: bold;
+    font-size: 30px;
     
+}
+.author{
+    font-size: 30px;
+    font-style: italic;
+
 }
 
 .poemWrapper {
     text-align: center;
     background-color: rgb(104, 163, 87);
-    font-size: 18px;
-    width:80%;
-    margin: 0 auto;
+    font-size: 24px;
+    width:400px;
+    padding:20px;
+    margin: 40px auto;
     border-radius: 20px;
+    color: rgb(255, 255, 255);
+
 }
+
+
 
