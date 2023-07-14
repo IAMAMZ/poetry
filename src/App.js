@@ -3,6 +3,7 @@ import SearchBox from "./components/SearchBox";
 import { useEffect, useState } from "react";
 import Poem from "./components/Poem";
 import Header from "./components/Header";
+import Dictionary from "./components/Dictionary";
 
 function App() {
   const [poems, setPoems] = useState();
@@ -35,12 +36,10 @@ function App() {
       });
   }
 
-  useEffect(() => {
-    console.log("useEffect worked...");
-  }, [poems]);
   return (
     <div className="App">
       <Header></Header>
+      <Dictionary />
       <SearchBox
         label="Search for title:"
         buttonTxt={"Search"}
