@@ -1,22 +1,25 @@
 import Draggable from "react-draggable";
 import "./Dictionary.css";
 import { useState } from "react";
+import Word from "./Word";
 
 export default function Dictionary() {
-  const [word, setWord] = useState();
+  const [words, setWords] = useState();
   const [inWord, setInword] = useState();
-
   return (
     <Draggable>
-      <>
+      <div>
         <form
           className="dictForm"
           onSubmit={(e) => {
+            console.log("form submitted");
             e.preventDefault();
             const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
             fetch(url + inWord)
               .then((response) => response.json())
-              .then((data) => console.log(data));
+              .then((data) => {
+                setWords(data);
+              });
           }}
         >
           <fieldset>
@@ -29,8 +32,8 @@ export default function Dictionary() {
             <button>Search</button>
           </fieldset>
         </form>
-        <p>{word}</p>
-      </>
+        <Word words={words} />
+      </div>
     </Draggable>
   );
 }
