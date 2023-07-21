@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import Poem from "./components/Poem";
 import Header from "./components/Header";
 import Dictionary from "./components/Dictionary";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SavedWords from "./pages/SavedWords";
+import Home from "./pages/Home";
 
 function App() {
   const [poems, setPoems] = useState();
@@ -39,29 +42,21 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Dictionary />
-      <SearchBox
-        label="Search for title:"
-        buttonTxt={"Search"}
-        whenSubmit={searchTitle}
-      />
-      <div className="poemsWrapper">
-        {console.log(poems)}
-        {poems ? (
-          poems.map((poem) => {
-            const lines = poem.lines;
-            const author = poem.author;
-            const title = poem.title;
-            return (
-              <div>
-                <Poem title={title} author={author} lines={lines} />
-              </div>
-            );
-          })
-        ) : (
-          <p>{error}</p>
-        )}
-      </div>
+      <Routes>
+        <Route
+          path="*"
+          element={
+            <Home
+              poems={poems}
+              setPoems={setPoems}
+              error={error}
+              setError={setError}
+              searchTitle={searchTitle}
+            />
+          }
+        />
+        <Route path="/saved-words" element={<SavedWords />} />
+      </Routes>
     </div>
   );
 }
