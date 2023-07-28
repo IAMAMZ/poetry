@@ -1,26 +1,34 @@
-.title{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-style: bold;
-    font-size: 30px;
-    
-}
-.author{
-    font-size: 30px;
-    font-style: italic;
-
-}
-
 .poemWrapper {
-    text-align: center;
-    background-color: rgb(104, 163, 87);
-    font-size: 24px;
-    width:400px;
-    padding:20px;
-    margin: 40px auto;
-    border-radius: 20px;
-    color: rgb(255, 255, 255);
-
-}
-
-
-
+    background-color: #F3E9D2; /* The cream background */
+    border: 1px solid #6D597A; /* The earthy purple border */
+    border-radius: 10px; /* Slightly rounded corners */
+    padding: 20px; /* Some padding to keep things neat */
+    margin-bottom: 20px; /* Some margin to keep cards separated */
+    max-width: 600px; /* Max width for larger screens */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); /* A slight shadow for depth */
+  }
+  
+  .title {
+    color: #1B4965; /* The deep blue for the title */
+    margin-bottom: 10px; /* A bit of margin for spacing */
+    font-size: 1.5em; /* Large, readable text */
+  }
+  
+  .author {
+    color: #6D597A; /* The earthy purple for the author */
+    margin-bottom: 15px; /* Some more margin for spacing */
+    font-size: 1.2em; /* Slightly smaller text */
+    font-style: italic; /* A bit of style */
+  }
+  
+  hr {
+    border: 0.5px solid #6D597A; /* The earthy purple for the separator */
+    margin-bottom: 15px; /* A bit of margin for spacing */
+  }
+  
+  .linesWrapper p {
+    color: #404040; /* The almost-black for the lines of the poem */
+    font-size: 1em; /* Standard text size */
+    line-height: 1.5; /* Give lines of the poem some breathing room */
+  }
+  

@@ -7,6 +7,7 @@ import Dictionary from "./components/Dictionary";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SavedWords from "./pages/SavedWords";
 import Home from "./pages/Home";
+import About from "./pages/About";
 
 function App() {
   const [poems, setPoems] = useState();
@@ -55,7 +56,8 @@ function App() {
             />
           }
         />
-        <Route path="/saved-words" element={<SavedWords />} />
+        <Route path="/savedwords" element={<SavedWords />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
