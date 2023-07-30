@@ -1,11 +1,48 @@
 .dictForm{
-    width:500px;
     padding:20px;
+    display: flex;
 }
 
 .dictForm fieldset{
-    margin:0 auto;
+    margin:0px auto;
+    margin-top: 120px;
     display: flex;
     justify-content: center;
     gap:20px;
+}
+
+.dictHidden{
+    display: none;
+}
+.dictVisible{
+    display:block;
+    position: fixed;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    gap:1.5rem;
+    background-color: #1B4965;
+    
+}
+.wordContainer{
+    margin:0 auto;
+}
+.dict-close-btn{
+    font-size:3rem;
+    position:absolute;
+    top:3rem;
+    right: 3rem;
+    background:transparent;
+    display:block;
+    color: #ebf2f7;
+    outline: none;
+    border: none;
+}
+.dict-close-btn:hover{
+    color: #c03009;
+}
+@media only screen and (max-width:1024px) {
+    
 }

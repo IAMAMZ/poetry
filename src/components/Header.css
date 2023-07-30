@@ -49,9 +49,6 @@ h1 {
     width: 100%;
     color: #F3E9D2;
 }
-.dictionary{
-    visibility: none;
-}
 
 header .nav-btn{
     padding: 5px;
@@ -93,13 +90,29 @@ header .nav-btn{
         z-index: 9999;
         gap:1.5rem;
         background-color: #1B4965;
-        transition:1s;
+        transition:0.5s;
         transform: translateY(-500vh);
     }
     header .responsive_nav{
         transform: none;
         width: 100%;
     }
+    .nav-close-btn{
+        font-size: 1.8rem;
+        position:absolute;
+        top:2rem;
+        right: 2rem;
+
+    }
+    .innerWrapper nav > .nav-link {
+        padding: 2px;
+    }
+    h1{
+        font-size: 20px;
+        height: 90%;
+
+    }
+
 
 
 

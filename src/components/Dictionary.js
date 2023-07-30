@@ -2,12 +2,17 @@ import Draggable from "react-draggable";
 import "./Dictionary.css";
 import { useState } from "react";
 import Word from "./Word";
+import { FaRegWindowClose } from "react-icons/fa";
 
-export default function Dictionary() {
+export default function Dictionary({ show, changeShow }) {
+  console.log("show in dictioary component is", show);
   const [words, setWords] = useState();
   const [inWord, setInword] = useState();
   return (
-    <Draggable>
+    <div className={"dictionary " + (show ? "dictVisible" : "dictHidden")}>
+      <button onClick={changeShow} className="dict-close-btn">
+        <FaRegWindowClose />
+      </button>
       <div>
         <form
           className="dictForm"
@@ -32,8 +37,10 @@ export default function Dictionary() {
             <button>Search</button>
           </fieldset>
         </form>
-        <Word words={words} />
+        <div className="wordContainer">
+          <Word words={words} />
+        </div>
       </div>
-    </Draggable>
+    </div>
   );
 }
