@@ -11,7 +11,7 @@ export default function Home({
 }) {
   return (
     <div>
-      <Dictionary />
+      {/* <Dictionary /> */}
       <SearchBox
         label="Search for title:"
         buttonTxt={"Search"}
