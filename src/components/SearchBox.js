@@ -9,6 +9,7 @@ export default function SearchBox({ label, buttonTxt, whenSubmit = (f) => f }) {
       onSubmit={(e) => {
         e.preventDefault();
         whenSubmit(formInput);
+        console.log(whenSubmit(formInput));
       }}
     >
       <fieldset className="boxFieldset">

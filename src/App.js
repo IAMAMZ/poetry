@@ -12,11 +12,11 @@ import About from "./pages/About";
 function App() {
   const [poems, setPoems] = useState();
   const [error, setError] = useState();
+  const [bothInput, setBothInput] = useState();
 
-  function searchTitle(title) {
+  function searchTitle(url, query) {
     console.log("search title worked");
-    const url = "https://poetrydb.org/title/" + title;
-    fetch(url)
+    fetch(url + query)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -52,7 +52,9 @@ function App() {
               setPoems={setPoems}
               error={error}
               setError={setError}
-              searchTitle={searchTitle}
+              searchTitle={(rating) =>
+                searchTitle("https://poetrydb.org/title/", rating)
+              }
             />
           }
         />
