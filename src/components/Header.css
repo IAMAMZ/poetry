@@ -65,12 +65,47 @@ header .nav-btn{
     margin-right: 50px;
     width: 100px;
     height: 50px;
+    border: none;
+    font-size: 1.rem;
 }
 .dict-link:hover{
     background: #F3E9D2;
     color: rgb(150, 110, 110);
 }
 
+.home-btn-contaner{
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    
+}
+.home-form-seach-btn{
+    background-color: #8630c0;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+    height: 44px;
+    line-height: 44px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    z-index: 9;
+    border: 0;
+    width: 250px;
+    font-weight: 800;
+}
 @media only screen and (max-width:1024px){
 
     header .nav-btn {

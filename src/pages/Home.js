@@ -35,6 +35,7 @@ export default function Home({
     <div>
       {/* <Dictionary /> */}
       <form
+        className="home-form"
         onSubmit={(e) => {
           e.preventDefault();
           getPoems();
@@ -52,7 +53,9 @@ export default function Home({
           inputVal={setAuthor}
           changed={setAuthorChange}
         />
-        <button>Search</button>
+        <div className="home-btn-contaner">
+          <button className="home-form-seach-btn">Search</button>
+        </div>
       </form>
       <div className="poemsWrapper">
         {console.log(poems)}

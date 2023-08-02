@@ -19,33 +19,9 @@
     height: 40px;
     border-radius: 4px;
     font-size: 18px;
+    border: solid 1px;
 }
-.boxFieldset button{
-    background-color: #6D597A;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
-    height: 44px;
-    line-height: 44px;
-    outline: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    pointer-events: auto;
-    position: relative;
-    text-align: center;
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: top;
-    white-space: nowrap;
-    z-index: 9;
-    border: 0;
-    width: 250px;
-    font-weight: 800;
-  }
+
 
 
 .boxFieldset button :hover {
