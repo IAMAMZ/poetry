@@ -1,13 +1,21 @@
 import { useState } from "react";
 import "./SearchBox.css";
 
-export default function SearchBox({ label, buttonTxt, whenSubmit = (f) => f }) {
+export default function SearchBox({
+  SearchBox,
+  label,
+  buttonTxt,
+  whenSubmit = (f) => f,
+  ...props
+}) {
   const [formInput, setFormInput] = useState();
 
   return (
     <form
       onSubmit={(e) => {
+        console.log(e.target.value);
         e.preventDefault();
+        console.log(formInput);
         whenSubmit(formInput);
         console.log(whenSubmit(formInput));
       }}

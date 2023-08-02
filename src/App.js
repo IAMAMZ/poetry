@@ -52,9 +52,7 @@ function App() {
               setPoems={setPoems}
               error={error}
               setError={setError}
-              searchTitle={(rating) =>
-                searchTitle("https://poetrydb.org/title/", rating)
-              }
+              searchTitle={searchTitle}
             />
           }
         />
