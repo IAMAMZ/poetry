@@ -6,32 +6,54 @@ import { useState } from "react";
 export default function Home({
   searchTitle,
   poems,
-  setPoems,
+  fetchPoems,
   error,
   setError,
 }) {
   // to track if just the title changed, the author changed or both
-  const [titleChagne, setTitleChange] = useState(false);
-  const [authorChange, setAuthorChnage] = useState(false);
+  const [titleChange, setTitleChange] = useState(false);
+  const [authorChange, setAuthorChange] = useState(false);
+  const [title, setTitle] = useState();
+  const [author, setAuthor] = useState();
+
+  const getPoems = () => {
+    if (titleChange && !authorChange) {
+      console.log("Fetching title.....", title);
+      fetchPoems("https://poetrydb.org/title/", title);
+    }
+    if (authorChange && !titleChange) {
+      console.log("Fetching authro...", author);
+      fetchPoems("https://poetrydb.org/author/", author);
+    }
+    if (authorChange && titleChange) {
+      console.log("fetching both title and author....", title, author);
+      fetchPoems(`https://poetrydb.org/author,title/${author};${title}`, "");
+    }
+  };
+
   return (
     <div>
       {/* <Dictionary /> */}
-      <SearchBox
-        label="Search for title:"
-        buttonTxt={"Search"}
-        whenSubmit={(query) =>
-          searchTitle("https://poetrydb.org/title/", query)
-        }
-        changed={titleChagne}
-      />
-      <SearchBox
-        label="Search for author"
-        buttonTxt={"search"}
-        whenSubmit={(query) => {
-          searchTitle("https://poetrydb.org/author/", query);
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          getPoems();
         }}
-        changed={authorChange}
-      />
+      >
+        <SearchBox
+          label="Search for title:"
+          buttonTxt={"Search"}
+          inputVal={setTitle}
+          changed={setTitleChange}
+        />
+        <SearchBox
+          label="Search for author"
+          buttonTxt={"search"}
+          inputVal={setAuthor}
+          changed={setAuthorChange}
+        />
+        <button>Search</button>
+      </form>
       <div className="poemsWrapper">
         {console.log(poems)}
         {poems ? (

@@ -14,7 +14,7 @@ function App() {
   const [error, setError] = useState();
   const [bothInput, setBothInput] = useState();
 
-  function searchTitle(url, query) {
+  function fetchPoems(url, query) {
     console.log("search title worked");
     fetch(url + query)
       .then((response) => {
@@ -52,7 +52,7 @@ function App() {
               setPoems={setPoems}
               error={error}
               setError={setError}
-              searchTitle={searchTitle}
+              fetchPoems={fetchPoems}
             />
           }
         />
