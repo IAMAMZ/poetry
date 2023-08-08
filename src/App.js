@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SavedWords from "./pages/SavedWords";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import SavedPoems from "./pages/SavedPoems";
 
 function App() {
   const [poems, setPoems] = useState();
@@ -58,6 +59,7 @@ function App() {
         />
         <Route path="/savedwords" element={<SavedWords />} />
         <Route path="/about" element={<About />} />
+        <Route path="/savedpoems" element={<SavedPoems />}></Route>
       </Routes>
     </div>
   );

@@ -48,6 +48,10 @@ export default function Header() {
           <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
             Login
           </NavLink>
+          <NavLink onClick={showNavBar} className="nav-link" to={"/savedpoems"}>
+            Saved Poems
+          </NavLink>
+
           <button onClick={showNavBar} className="nav-btn nav-close-btn">
             <FaRegWindowClose />
           </button>
