@@ -9,6 +9,7 @@ import SavedWords from "./pages/SavedWords";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import SavedPoems from "./pages/SavedPoems";
+import Register from "./pages/Register";
 
 function App() {
   const [poems, setPoems] = useState();
@@ -59,7 +60,8 @@ function App() {
         />
         <Route path="/savedwords" element={<SavedWords />} />
         <Route path="/about" element={<About />} />
-        <Route path="/savedpoems" element={<SavedPoems />}></Route>
+        <Route path="/savedpoems" element={<SavedPoems />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );

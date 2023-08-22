@@ -1,0 +1,35 @@
+.RegisterPage section{
+    margin:0 auto;
+    width: 600px;
+    gap:40px;
+    background-color: lightblue;
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.RegisterPage h1 {
+    color: black;
+    margin: 0 auto;
+}
+.RegisterPage form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+.RegisterPage form input{
+    height: 30px;
+    margin-bottom: 20px;
+}
+.RegisterPage .hide{
+    display: none;
+}
+.RegisterPage .offscreen {
+    display: none;
+}
+
+
