@@ -40,7 +40,7 @@ export default function Header() {
             Home
           </NavLink>
           <NavLink onClick={showNavBar} className="nav-link" to={"/about"}>
-            About{" "}
+            About
           </NavLink>
           <NavLink onClick={showNavBar} className="nav-link" to={"/savedwords"}>
             Saved Words

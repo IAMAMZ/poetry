@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect, useContext } from "react";
+import "./Login.css";
 import AuthContext from "../context/AuthProvider";
 import axios from "../api/axios";
 const LOGIN_URL = "/login";
@@ -51,7 +52,7 @@ export default function Login() {
   };
 
   return (
-    <>
+    <div className="LoginPg">
       {success ? (
         <section>
           <h1>You are logged in!</h1>
@@ -102,6 +103,6 @@ export default function Login() {
           </p>
         </section>
       )}
-    </>
+    </div>
   );
 }
