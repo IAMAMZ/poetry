@@ -18,11 +18,9 @@ export default function Home({
 
   const getPoems = () => {
     if (titleChange && !authorChange) {
-      console.log("Fetching title.....", title);
       fetchPoems("https://poetrydb.org/title/", title);
     }
     if (authorChange && !titleChange) {
-      console.log("Fetching authro...", author);
       fetchPoems("https://poetrydb.org/author/", author);
     }
     if (authorChange && titleChange) {
@@ -58,7 +56,6 @@ export default function Home({
         </div>
       </form>
       <div className="poemsWrapper">
-        {console.log(poems)}
         {poems ? (
           poems.map((poem) => {
             const lines = poem.lines;

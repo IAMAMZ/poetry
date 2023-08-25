@@ -6,15 +6,20 @@ import {
   faBook,
   FaRegWindowClose,
 } from "react-icons/fa";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import "./Header.css";
 import Dictionary from "./Dictionary";
+import AuthContext from "../context/AuthProvider";
 
 export default function Header() {
+  console.log("header component ran");
   const navRef = useRef();
   const dictref = useRef();
+  const { auth } = useContext(AuthContext);
+  console.log("This the auth object ...", auth);
 
   const [showdict, setShowdict] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState();
 
   const showNavBar = () => {
     navRef.current.classList.toggle("responsive_nav");
@@ -42,15 +47,36 @@ export default function Header() {
           <NavLink onClick={showNavBar} className="nav-link" to={"/about"}>
             About
           </NavLink>
-          <NavLink onClick={showNavBar} className="nav-link" to={"/savedwords"}>
-            Saved Words
-          </NavLink>
-          <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
-            Login
-          </NavLink>
-          <NavLink onClick={showNavBar} className="nav-link" to={"/savedpoems"}>
-            Saved Poems
-          </NavLink>
+          {auth.user ? (
+            <>
+              <NavLink
+                onClick={showNavBar}
+                className="nav-link"
+                to={"/savedwords"}
+              >
+                Saved Words
+              </NavLink>
+              <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
+                {auth.user}
+              </NavLink>
+              <NavLink
+                onClick={showNavBar}
+                className="nav-link"
+                to={"/savedpoems"}
+              >
+                Saved Poems
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
+                Login
+              </NavLink>
+              <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
+                Sign Up
+              </NavLink>
+            </>
+          )}
 
           <button onClick={showNavBar} className="nav-btn nav-close-btn">
             <FaRegWindowClose />

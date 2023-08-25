@@ -13,6 +13,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 
 function App() {
+  console.log("App component ran");
   const [poems, setPoems] = useState();
   const [error, setError] = useState();
   const [bothInput, setBothInput] = useState();
