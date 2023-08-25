@@ -56,15 +56,18 @@ export default function Header() {
               >
                 Saved Words
               </NavLink>
-              <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
-                {auth.user}
-              </NavLink>
               <NavLink
                 onClick={showNavBar}
                 className="nav-link"
                 to={"/savedpoems"}
               >
                 Saved Poems
+              </NavLink>
+              <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
+                {auth.user}
+              </NavLink>
+              <NavLink onClick={showNavBar} className="nav-link" to={"/logout"}>
+                Logout
               </NavLink>
             </>
           ) : (

@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { baseUrl } from "../shared";
 import Poem from "../components/Poem";
+import AuthContext from "../context/AuthProvider";
 export default function SavedPoems() {
   const [poems, setPoems] = useState();
+  const { auth } = useContext(AuthContext);
 
   useEffect(() => {
-    console.log("..useeffect ran");
-    fetch(baseUrl + "/api/poems")
+    console.log(auth);
+    console.log("trying to fetch poems");
+    fetch(baseUrl + "/api/poems/" + auth.user, {
+      headers: { Authorization: "Bearer " + auth.accessToken },
+    })
       .then((response) => {
         if (!response.ok) {
           console.log(response);

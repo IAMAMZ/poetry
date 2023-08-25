@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { baseUrl } from "../shared";
 import "./Poem.css";
+import AuthContext from "../context/AuthProvider";
 
 export default function Poem({ title, author, lines }) {
+  const { auth } = useContext(AuthContext);
   return (
     <div className="poemWrapper">
       <h2 className="title">{title}</h2>
@@ -18,9 +21,10 @@ export default function Poem({ title, author, lines }) {
               author: author,
               lines: lines,
             });
-            fetch(baseUrl + "/api/poems", {
+            fetch(baseUrl + "/api/poems/" + auth.user, {
               headers: {
                 "Content-Type": "application/json",
+                Authorization: "Bearer " + auth.accessToken,
               },
               method: "POST",
               body: poemObj,
