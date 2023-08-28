@@ -11,6 +11,8 @@ import About from "./pages/About";
 import SavedPoems from "./pages/SavedPoems";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Layout from "./components/Layout";
+import NotFound from "./pages/NotFound";
 
 function App() {
   console.log("App component ran");
@@ -46,25 +48,27 @@ function App() {
 
   return (
     <div className="App">
-      <Header></Header>
       <Routes>
-        <Route
-          path="*"
-          element={
-            <Home
-              poems={poems}
-              setPoems={setPoems}
-              error={error}
-              setError={setError}
-              fetchPoems={fetchPoems}
-            />
-          }
-        />
-        <Route path="/savedwords" element={<SavedWords />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/savedpoems" element={<SavedPoems />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <Home
+                poems={poems}
+                setPoems={setPoems}
+                error={error}
+                setError={setError}
+                fetchPoems={fetchPoems}
+              />
+            }
+          />
+          <Route path="/savedwords" element={<SavedWords />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/savedpoems" element={<SavedPoems />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
     </div>
   );
