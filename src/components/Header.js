@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   FaBars,
   FaBook,
@@ -10,9 +10,15 @@ import { useContext, useRef, useState } from "react";
 import "./Header.css";
 import Dictionary from "./Dictionary";
 import AuthContext from "../context/AuthProvider";
+import useLogout from "../hooks/useLogout";
 
 export default function Header() {
-  console.log("header component ran");
+  const logout = useLogout();
+  const Navigate = useNavigate();
+  const signOut = async () => {
+    await logout();
+    Navigate("/");
+  };
   const navRef = useRef();
   const dictref = useRef();
   const { auth } = useContext(AuthContext);
@@ -66,7 +72,13 @@ export default function Header() {
               <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
                 {auth.user}
               </NavLink>
-              <NavLink onClick={showNavBar} className="nav-link" to={"/logout"}>
+              <NavLink
+                onClick={() => {
+                  showNavBar();
+                  signOut();
+                }}
+                className="nav-link"
+              >
                 Logout
               </NavLink>
             </>
