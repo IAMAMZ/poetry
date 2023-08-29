@@ -18,6 +18,7 @@ export default function Dictionary({ show, changeShow }) {
       word: inWord,
       meanings: lines,
     });
+    // To do change this to axios private
     fetch(baseUrl + "/api/words/" + auth.user, {
       headers: {
         "Content-Type": "application/json",
