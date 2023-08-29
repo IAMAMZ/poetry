@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Word.css";
 
-export default function Word({ words }) {
+export default function Word({ words, saveWordFunc }) {
   let lines = [];
   if (words) {
     for (let i = 0; i < words.length; i++) {
@@ -28,6 +28,13 @@ export default function Word({ words }) {
             return <p key={i}>{line}</p>;
           })}
         </div>
+        <button
+          onClick={() => {
+            saveWordFunc(lines);
+          }}
+        >
+          Save Word
+        </button>
       </div>
     </>
   );

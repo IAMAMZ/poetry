@@ -3,11 +3,42 @@ import "./Dictionary.css";
 import { useState } from "react";
 import Word from "./Word";
 import { FaRegWindowClose } from "react-icons/fa";
+import useAuth from "../hooks/useAuth";
+import { baseUrl } from "../shared";
 
 export default function Dictionary({ show, changeShow }) {
   console.log("show in dictioary component is", show);
   const [words, setWords] = useState("");
   const [inWord, setInword] = useState();
+
+  const { auth } = useAuth();
+
+  const saveWord = (lines) => {
+    const wordObj = JSON.stringify({
+      word: inWord,
+      meanings: lines,
+    });
+    fetch(baseUrl + "/api/words/" + auth.user, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + auth.accessToken,
+      },
+      method: "POST",
+      body: wordObj,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   return (
     <div className={"dictionary " + (show ? "dictVisible" : "dictHidden")}>
       <button onClick={changeShow} className="dict-close-btn">
@@ -39,13 +70,9 @@ export default function Dictionary({ show, changeShow }) {
           </fieldset>
         </form>
         <div className="wordContainer">
-          <Word words={words} />
+          <Word words={words} saveWordFunc={saveWord} />
         </div>
-        <div className="saveWordWrapper">
-          {words === "" ? null : (
-            <button className="saveWord-btn">Save Word</button>
-          )}
-        </div>
+        <div className="saveWordWrapper"></div>
       </div>
     </div>
   );
