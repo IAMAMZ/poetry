@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Word.css";
 
 export default function Word({ words }) {
   let lines = [];
@@ -16,13 +17,18 @@ export default function Word({ words }) {
         }
       }
     }
+    console.log(lines);
   }
 
   return (
-    <div>
-      {lines.map((line) => {
-        return <p>{line}</p>;
-      })}
-    </div>
+    <>
+      <div className="WordSlider">
+        <div className="LinesWrapper">
+          {lines.map((line, i) => {
+            return <p key={i}>{line}</p>;
+          })}
+        </div>
+      </div>
+    </>
   );
 }

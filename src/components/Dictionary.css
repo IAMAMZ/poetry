@@ -8,8 +8,28 @@
     margin-top: 120px;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap:20px;
     border: none;
+}
+.dictForm input {
+    width: 350px;
+    height: 30px;
+    font-size: 20px;
+}
+.dictForm button{
+    width: 120px;
+    height: 30px;
+    background-color: rgb(151, 15, 174);
+    border: none;
+    border-radius: 4px;
+    color: #F3E9D2;
+    font-size: 18px;
+    font-weight: 700;
+}
+.dictForm button:hover {
+    background-color: rgb(78, 15, 78);
+
 }
 
 .dictHidden{
@@ -40,10 +60,34 @@
     color: #ebf2f7;
     outline: none;
     border: none;
+    color: #F3E9D2;
 }
 .dict-close-btn:hover{
     color: #c03009;
 }
+.saveWordWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.saveWord-btn{
+    width: 150px;
+    height:40px;
+    background-color: rgb(101, 38, 203);
+    border: none;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    color:#F3E9D2;
+    font-size: 20px;
+    font-weight: 800;
+    border-radius: 4px;
+}
+.saveWord-btn:hover {
+    background-color: purple;
+}
 @media only screen and (max-width:1024px) {
     
 }
+
+

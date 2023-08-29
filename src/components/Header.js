@@ -87,7 +87,7 @@ export default function Header() {
               <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
                 Login
               </NavLink>
-              <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
+              <NavLink onClick={showNavBar} className="nav-link" to={"/signup"}>
                 Sign Up
               </NavLink>
             </>

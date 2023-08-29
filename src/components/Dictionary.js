@@ -6,7 +6,7 @@ import { FaRegWindowClose } from "react-icons/fa";
 
 export default function Dictionary({ show, changeShow }) {
   console.log("show in dictioary component is", show);
-  const [words, setWords] = useState();
+  const [words, setWords] = useState("");
   const [inWord, setInword] = useState();
   return (
     <div className={"dictionary " + (show ? "dictVisible" : "dictHidden")}>
@@ -23,6 +23,7 @@ export default function Dictionary({ show, changeShow }) {
             fetch(url + inWord)
               .then((response) => response.json())
               .then((data) => {
+                console.log(data);
                 setWords(data);
               });
           }}
@@ -39,6 +40,11 @@ export default function Dictionary({ show, changeShow }) {
         </form>
         <div className="wordContainer">
           <Word words={words} />
+        </div>
+        <div className="saveWordWrapper">
+          {words === "" ? null : (
+            <button className="saveWord-btn">Save Word</button>
+          )}
         </div>
       </div>
     </div>
