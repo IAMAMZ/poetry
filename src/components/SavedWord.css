@@ -1,3 +1,6 @@
 .SavedWordsComponent {
     color: black;
 }
+.saveWord-btn:hover {
+    background-color: purple;
+}

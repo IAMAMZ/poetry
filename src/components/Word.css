@@ -6,11 +6,18 @@
 .WordSlider button{
     width: 150px;
     height:40px;
-    background-color: rgb(101, 38, 203);
+    background-color: rgb(114, 43, 227);
     border: none;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     color:#F3E9D2;
     font-size: 20px;
     font-weight: 800;
     margin: 20px 0;
+}
+
+.WordSlider button:hover {
+    background-color: purple;
+}
+.WordSlider button:focus{
+    background-color: red;
 }

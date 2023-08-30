@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Word.css";
 
 export default function Word({ words, saveWordFunc }) {
-  let lines = [];
+  const lines = useState([]);
+
   if (words) {
     for (let i = 0; i < words.length; i++) {
       let wordMeanings = words[i];
@@ -28,13 +29,15 @@ export default function Word({ words, saveWordFunc }) {
             return <p key={i}>{line}</p>;
           })}
         </div>
-        <button
-          onClick={() => {
-            saveWordFunc(lines);
-          }}
-        >
-          Save Word
-        </button>
+        {words ? (
+          <button
+            onClick={() => {
+              saveWordFunc(lines);
+            }}
+          >
+            Save Word
+          </button>
+        ) : null}
       </div>
     </>
   );

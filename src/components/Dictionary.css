@@ -75,7 +75,7 @@
 .saveWord-btn{
     width: 150px;
     height:40px;
-    background-color: rgb(101, 38, 203);
+    background-color: rgb(70, 43, 114);
     border: none;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     color:#F3E9D2;
@@ -83,9 +83,7 @@
     font-weight: 800;
     border-radius: 4px;
 }
-.saveWord-btn:hover {
-    background-color: purple;
-}
+
 @media only screen and (max-width:1024px) {
     
 }
