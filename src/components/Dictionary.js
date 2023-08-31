@@ -9,9 +9,9 @@ import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { axiosPrivate } from "../api/axios";
 
 export default function Dictionary({ show, changeShow }) {
-  console.log("show in dictioary component is", show);
   const [words, setWords] = useState("");
   const [inWord, setInword] = useState();
+  const [err, setErr] = useState(false);
   const axiosPrivate = useAxiosPrivate();
 
   const { auth } = useAuth();
@@ -24,7 +24,6 @@ export default function Dictionary({ show, changeShow }) {
 
     const pushWords = async () => {
       try {
-        console.log(wordObj);
         const response = await axiosPrivate.post(
           "/api/words/" + auth.user,
           wordObj,
@@ -72,10 +71,21 @@ export default function Dictionary({ show, changeShow }) {
             e.preventDefault();
             const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
             fetch(url + inWord)
-              .then((response) => response.json())
+              .then((response) => {
+                if (!response.ok) {
+                  setErr(true);
+                } else {
+                  setErr(false);
+                  return response.json();
+                }
+              })
               .then((data) => {
                 console.log(data);
                 setWords(data);
+              })
+              .catch((e) => {
+                console.log(e);
+                setErr(true);
               });
           }}
         >
@@ -90,7 +100,7 @@ export default function Dictionary({ show, changeShow }) {
           </fieldset>
         </form>
         <div className="wordContainer">
-          <Word words={words} saveWordFunc={saveWord} />
+          <Word words={words} err={[err, setErr]} saveWordFunc={saveWord} />
         </div>
         <div className="saveWordWrapper"></div>
       </div>

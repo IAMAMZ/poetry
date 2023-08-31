@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import "./Word.css";
 
-export default function Word({ words, saveWordFunc }) {
+export default function Word({ words, saveWordFunc, err: [err, setErr] }) {
   const lines = useState([]);
+
+  console.log(words);
+  console.log("The error object is ", err);
 
   if (words) {
     for (let i = 0; i < words.length; i++) {
@@ -29,7 +32,7 @@ export default function Word({ words, saveWordFunc }) {
             return <p key={i}>{line}</p>;
           })}
         </div>
-        {words ? (
+        {!err ? (
           <button
             onClick={() => {
               saveWordFunc(lines);
@@ -37,7 +40,9 @@ export default function Word({ words, saveWordFunc }) {
           >
             Save Word
           </button>
-        ) : null}
+        ) : (
+          <p>No word found</p>
+        )}
       </div>
     </>
   );

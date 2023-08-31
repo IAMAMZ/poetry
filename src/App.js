@@ -66,7 +66,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/savedpoems" element={<SavedPoems />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/signin" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import {
   FaBars,
   FaBook,
@@ -22,8 +22,6 @@ export default function Header() {
   const navRef = useRef();
   const dictref = useRef();
   const { auth } = useContext(AuthContext);
-  console.log("This the auth object ...", auth);
-
   const [showdict, setShowdict] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState();
 
@@ -72,23 +70,27 @@ export default function Header() {
               <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
                 {auth.user}
               </NavLink>
-              <NavLink
+              <Link
                 onClick={() => {
                   showNavBar();
                   signOut();
                 }}
                 className="nav-link"
               >
-                Logout
-              </NavLink>
+                Sign Out
+              </Link>
             </>
           ) : (
             <>
-              <NavLink onClick={showNavBar} className="nav-link" to={"/login"}>
-                Login
+              <NavLink onClick={showNavBar} className="nav-link" to={"/signin"}>
+                Sign In
               </NavLink>
-              <NavLink onClick={showNavBar} className="nav-link" to={"/signup"}>
-                Sign Up
+              <NavLink
+                onClick={showNavBar}
+                className="nav-link"
+                to={"/register"}
+              >
+                Register
               </NavLink>
             </>
           )}
