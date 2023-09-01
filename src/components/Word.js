@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import useAuth from "../hooks/useAuth";
 import "./Word.css";
 
 export default function Word({ words, saveWordFunc, err: [err, setErr] }) {
   const lines = useState([]);
-
+  const { auth } = useAuth();
   console.log(words);
   console.log("The error object is ", err);
 
@@ -21,8 +22,10 @@ export default function Word({ words, saveWordFunc, err: [err, setErr] }) {
         }
       }
     }
-    console.log(lines);
   }
+
+  console.log("the lines is ", lines.length);
+  console.log(auth);
 
   return (
     <>
@@ -33,13 +36,15 @@ export default function Word({ words, saveWordFunc, err: [err, setErr] }) {
           })}
         </div>
         {!err ? (
-          <button
-            onClick={() => {
-              saveWordFunc(lines);
-            }}
-          >
-            Save Word
-          </button>
+          lines.length == 2 || !auth.user ? null : (
+            <button
+              onClick={() => {
+                saveWordFunc(lines);
+              }}
+            >
+              Save Word
+            </button>
+          )
         ) : (
           <p>No word found</p>
         )}

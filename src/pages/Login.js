@@ -2,12 +2,14 @@ import { useRef, useState, useEffect, useContext } from "react";
 import "./Login.css";
 import AuthContext from "../context/AuthProvider";
 import axios from "../api/axios";
+import { useNavigate } from "react-router-dom";
 const LOGIN_URL = "/login";
 
 export default function Login() {
   const { auth, setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
@@ -38,6 +40,7 @@ export default function Login() {
       setUser("");
       setPwd("");
       setSuccess(true);
+      navigate("/");
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
