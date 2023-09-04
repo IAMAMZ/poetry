@@ -2,7 +2,7 @@ import { useRef, useState, useEffect, useContext } from "react";
 import "./Login.css";
 import AuthContext from "../context/AuthProvider";
 import axios from "../api/axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const LOGIN_URL = "/login";
 
 export default function Login() {
@@ -100,8 +100,7 @@ export default function Login() {
             Need an Account?
             <br />
             <span className="line">
-              {/*put router link here*/}
-              <a href="#">Sign Up</a>
+              <Link to="/register">Register</Link>
             </span>
           </p>
         </section>

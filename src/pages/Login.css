@@ -1,5 +1,4 @@
 
-
 .LoginPg section{
     margin:0 auto;
     width: 500px;
@@ -8,6 +7,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.LoginPg h1 {
+    color: black;
 }
 
 .LoginPg form {
@@ -31,4 +33,22 @@
     color: bisque;
     font-weight: 700;
     border-radius: 8px;
+}
+
+@media only screen and (max-width:600px){
+    .LoginPg section{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .LoginPg form {
+        width: 90%;
+    }
+    .LoginPg button{
+        width: 90%;
+    }
+    .LoginPg form input {
+        width: 90%;
+        margin: 0 0 20px 0;
+    }
 }

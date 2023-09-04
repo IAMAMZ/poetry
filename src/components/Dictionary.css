@@ -37,10 +37,9 @@
 }
 .dictVisible{
     display:block;
-    position: fixed;
+    position: absolute;
     top:0;
     left: 0;
-    height: 100%;
     width: 100%;
     z-index: 9999;
     gap:1.5rem;
@@ -85,6 +84,14 @@
 }
 
 @media only screen and (max-width:1024px) {
+   
+    .dictForm fieldset{
+     flex-direction: column;
+    }
+    .dictForm fieldset input {
+        width: 100%;
+    }
+
     
 }
 

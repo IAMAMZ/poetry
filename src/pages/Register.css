@@ -2,7 +2,6 @@
     margin:0 auto;
     width: 600px;
     gap:40px;
-    background-color: lightblue;
     margin-top: 50px;
     border-radius: 10px;
     padding: 50px;
@@ -21,9 +20,16 @@
     flex-direction: column;
     width: 400px;
 }
+.RegisterPage form label{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
 .RegisterPage form input{
-    height: 30px;
+    height: 40px;
     margin-bottom: 20px;
+    font-size: 18px;
+    padding:6px
+
 }
 .RegisterPage .hide{
     display: none;
@@ -40,6 +46,25 @@
     color:rgb(81, 26, 26);
     font-size:24px;
     border-radius: 8px;
+}
+.RegisterPage button {
+    height: 40px;
+    font-size: 18px;
+}
+
+@media only screen and (max-width:1024px){
+
+    
+    .RegisterPage section{
+        width: 100%;
+    }
+    .RegisterPage form {
+        width: 100%;
+    }
+    .RegisterPage button{
+        width: 100%;
+        margin: 0 auto;
+    }
 }
 
 
