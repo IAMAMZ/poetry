@@ -45,6 +45,7 @@ export default function SavedPoems() {
               title={poem.title}
               author={poem.author}
               lines={poem.lines}
+              poemId={poem._id}
             />
           );
         })

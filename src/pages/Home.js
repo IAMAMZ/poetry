@@ -1,7 +1,7 @@
 import Dictionary from "../components/Dictionary";
 import SearchBox from "../components/SearchBox";
 import Poem from "../components/Poem";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home({
   searchTitle,
@@ -15,6 +15,10 @@ export default function Home({
   const [authorChange, setAuthorChange] = useState(false);
   const [title, setTitle] = useState();
   const [author, setAuthor] = useState();
+
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
 
   const getPoems = () => {
     if (titleChange && !authorChange) {
@@ -63,7 +67,12 @@ export default function Home({
             const title = poem.title;
             return (
               <div>
-                <Poem title={title} author={author} lines={lines} />
+                <Poem
+                  title={title}
+                  author={author}
+                  lines={lines}
+                  saveOrDelete="save"
+                />
               </div>
             );
           })

@@ -1,4 +1,8 @@
+import { useEffect } from "react";
 export default function Aboout() {
+  useEffect(() => {
+    document.title = "About Page";
+  }, []);
   return (
     <div>
       <h1>About</h1>
