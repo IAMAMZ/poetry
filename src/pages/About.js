@@ -1,20 +1,28 @@
 import { useEffect } from "react";
+import "./About.css";
 export default function Aboout() {
   useEffect(() => {
     document.title = "About Page";
   }, []);
   return (
-    <div>
-      <h1>About</h1>
+    <div className="aboutUspg">
+      <h1>About This Project</h1>
+      <h2>
+          Hello there,
+      </h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+
+          I'm Miran Qarachatani, a second-year CS student with a fondness for poetry
+          . I created The Poetry App as a simple tool to explore and understand the world of poetry better.
+          Here, you can search for poems using PoetryDB, save the ones that resonate, and delve deeper into unfamiliar words with an integrated dictionary.
+            Everything is stored securely, letting each user keep their discoveries private. 
+            It's a personal project, shaped by my love for words and the emotions they carry.
       </p>
+      <h4>Thanks for dropping by.</h4>
+      <h5>You can view the source code for the frontend: <a href="https://github.com/IAMAMZ/poetry">Here</a></h5>
+
+      <h5>You can view the source code for the backend: <a href="https://github.com/IAMAMZ/Poetry-App-Server">Here</a></h5>
+       
     </div>
   );
 }
