@@ -11,7 +11,6 @@ export default function Aboout() {
           Hello there,
       </h2>
       <p>
-
           I'm Miran Qarachatani, a second-year CS student with a fondness for poetry
           . I created The Poetry App as a simple tool to explore and understand the world of poetry better.
           Here, you can search for poems using PoetryDB, save the ones that resonate, and delve deeper into unfamiliar words with an integrated dictionary.
